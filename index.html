@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>スロット</title>
+</head> 
+<body>
+    <div id="main">
+        <div id="srot">
+            <div>
+                <div id="left">0</div>
+                <button id="btn1">ストップ</button>
+            </div>  
+            <div>
+                <div id="center">0</div>
+                <button id="btn2">ストップ</button>
+            </div>   
+            <div>
+                <div id="right">0</div>
+                <button id="btn3">ストップ</button>
+            </div>
+        </div>
+        <button id="btn4">スタート</button>
+    </div>
+    <script>
+
+        let srot = () =>{
+            //1~9までの数字の配列を作る
+            let text = [0,1,2,3,4,5,6,7,8,9];
+            //数字配列が＃srotタグ内でランダムに表示
+            let rnd =Math.floor(Math.random() * text.length);           
+            //数字配列を＃srotに代入する
+            document.getElementById("left").innerHTML = rnd;
+            document.getElementById("center").innerHTML = rnd;
+            document.getElementById("right").innerHTML = rnd;
+
+        };
+
+
+        //数字のランダム表示を繰り返し
+        setInterval(srot,25);
+
+        // console.log(text[rnd]);
+
+
+
+
+        
+
+
+        
+        // ボタンのクリックに合わせて止める
+        //数字のランダム表示、停止はボタン（スタート・ストップの切り替え式にする）
+        //
+
+
+
+    </script>
+</body>
+</html>
