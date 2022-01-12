@@ -10,49 +10,62 @@
         <div id="srot">
             <div>
                 <div id="left">0</div>
-                <button id="btn1">ストップ</button>
+                <button id="btn1" onclick="stopbtnLeft()">ストップ</button>
             </div>  
             <div>
                 <div id="center">0</div>
-                <button id="btn2">ストップ</button>
+                <button id="btn2" onclick="stopbtnCenter()">ストップ</button>
             </div>   
             <div>
                 <div id="right">0</div>
-                <button id="btn3">ストップ</button>
+                <button id="btn3" onclick="stopbtnRight()">ストップ</button>
             </div>
         </div>
-        <button id="btn4">スタート</button>
+        <button id="btn4" onclick="restart()">リスタート</button>
     </div>
     <script>
 
-        let srot = () =>{
-            //1~9までの数字の配列を作る
-            let text = [0,1,2,3,4,5,6,7,8,9];
-            //数字配列が＃srotタグ内でランダムに表示
-            let rnd =Math.floor(Math.random() * text.length);           
-            //数字配列を＃srotに代入する
+        //右スロットの処理
+        const srotLeft = () =>{
+            const text = [0,1,2,3,4,5,6,7,8,9];
+            const rnd =Math.floor(Math.random() * text.length);           
             document.getElementById("left").innerHTML = rnd;
-            document.getElementById("center").innerHTML = rnd;
-            document.getElementById("right").innerHTML = rnd;
 
         };
+            const stopLeft = setInterval(srotLeft,90);
+            const stopbtnLeft = function(){
+            clearInterval(stopLeft);
+            }
+
+        //真ん中スロットの処理
+        const srotCenter = () =>{
+            const text = [0,1,2,3,4,5,6,7,8,9];
+            const rnd =Math.floor(Math.random() * text.length);           
+            document.getElementById("center").innerHTML = rnd;
+        };
+            const stopCenter = setInterval(srotCenter,90);
+            const stopbtnCenter = function(){
+            clearInterval(stopCenter);
+            }
+
+        //右スロットの処理
+        const srotRight = () =>{
+            const text = [0,1,2,3,4,5,6,7,8,9];
+            const rnd =Math.floor(Math.random() * text.length);           
+            document.getElementById("right").innerHTML = rnd;
+        };
+            const stopRight = setInterval(srotRight,90);
+            const stopbtnRight = function(){
+            clearInterval(stopRight);
+            }
+
+            const restart = function (){
+                location.reload();
+            }
 
 
-        //数字のランダム表示を繰り返し
-        setInterval(srot,25);
-
-        // console.log(text[rnd]);
-
-
-
-
-        
-
-
-        
-        // ボタンのクリックに合わせて止める
-        //数字のランダム表示、停止はボタン（スタート・ストップの切り替え式にする）
-        //
+        //ブラウザ表示後、スタートボタンを押すと動き出す
+        //ストップボタンを全て打ち終わり、スタートボタンを押すと再び動き出す
 
 
 
