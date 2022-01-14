@@ -21,9 +21,20 @@
                 <button id="btn3" onclick="stopbtnRight()">ストップ</button>
             </div>
         </div>
-        <button id="btn4" onclick="restart()">リスタート</button>
+        <button id="btn4" onclick="restart()">スタート</button>
     </div>
     <script>
+        
+
+        const restart = function (){
+            // location.reload(); 
+            const btn4 = 'リスタート';
+            document.getElementById("btn4").innerHTML=btn4;
+
+            const stopLeft = setInterval(srotLeft,90);
+            const stopCenter = setInterval(srotCenter,90);            
+            const stopRight = setInterval(srotRight,90);
+        }
 
         //右スロットの処理
         const srotLeft = () =>{
@@ -32,7 +43,7 @@
             document.getElementById("left").innerHTML = rnd;
 
         };
-            const stopLeft = setInterval(srotLeft,90);
+            
             const stopbtnLeft = function(){
             clearInterval(stopLeft);
             }
@@ -43,7 +54,7 @@
             const rnd =Math.floor(Math.random() * text.length);           
             document.getElementById("center").innerHTML = rnd;
         };
-            const stopCenter = setInterval(srotCenter,90);
+
             const stopbtnCenter = function(){
             clearInterval(stopCenter);
             }
@@ -54,18 +65,15 @@
             const rnd =Math.floor(Math.random() * text.length);           
             document.getElementById("right").innerHTML = rnd;
         };
-            const stopRight = setInterval(srotRight,90);
+
             const stopbtnRight = function(){
             clearInterval(stopRight);
             }
-
-            const restart = function (){
-                location.reload();
-            }
+        
+        
 
 
         //ブラウザ表示後、スタートボタンを押すと動き出す
-        //ストップボタンを全て打ち終わり、スタートボタンを押すと再び動き出す
 
 
 
