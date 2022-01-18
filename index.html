@@ -7,68 +7,96 @@
 </head> 
 <body>
     <div id="main">
+        <div id ="title">Slot-Game</div>
         <div id="srot">
-            <div>
-                <div id="left">0</div>
-                <button id="btn1" onclick="stopbtnLeft()">ストップ</button>
+            <div id ="set">
+                <div><img src="images/white.jpg" id="left-area"></div>
+                <button id="leftBtn" onclick="stopbtnLeft()">ストップ</button>
             </div>  
-            <div>
-                <div id="center">0</div>
-                <button id="btn2" onclick="stopbtnCenter()">ストップ</button>
+            <div id="set">
+                <div><img src="images/white.jpg" id="center-area"></div>
+                <button id="centerBtn" onclick="stopbtnCenter()">ストップ</button>
             </div>   
-            <div>
-                <div id="right">0</div>
-                <button id="btn3" onclick="stopbtnRight()">ストップ</button>
+            <div id="set">
+                <div><img src="images/white.jpg" id="right-area"></div>
+                <button id="rightBtn" onclick="stopbtnRight()">ストップ</button>
             </div>
         </div>
-        <button id="btn4" onclick="restart()">スタート</button>
+        <div id ="all">
+            <button id="reBtn" onclick="restart()">スタート</button>
+        </div>
     </div>
     <script>
         
+        let stopLeft
+        let stopCenter
+        let stopRight
 
         const restart = function (){
             // location.reload(); 
-            const btn4 = 'リスタート';
-            document.getElementById("btn4").innerHTML=btn4;
+            const reBtn = 'リスタート';
+            document.getElementById("reBtn").innerHTML=reBtn;
 
-            const stopLeft = setInterval(srotLeft,90);
-            const stopCenter = setInterval(srotCenter,90);            
-            const stopRight = setInterval(srotRight,90);
+             stopLeft = setInterval(srotLeft,200);
+             stopCenter = setInterval(srotCenter,175);            
+             stopRight = setInterval(srotRight,150);
         }
 
-        //右スロットの処理
+
+        //左スロットの処理
         const srotLeft = () =>{
-            const text = [0,1,2,3,4,5,6,7,8,9];
-            const rnd =Math.floor(Math.random() * text.length);           
-            document.getElementById("left").innerHTML = rnd;
+            const text = ['images/apple.jpg','images/bell.jpg','images/budoo.jpg',
+                          'images/piero.jpg','images/seven.jpg','images/suika.jpg','images/money.jpg'];
+            const rnd =Math.floor(Math.random() * text.length);  
+            const area = document.getElementById("left-area");
+            area.src = text[rnd];
 
         };
             
-            const stopbtnLeft = function(){
+        const stopbtnLeft = function(){
             clearInterval(stopLeft);
-            }
+
+            //クリックすると赤色から青色に変わる
+            const leftBtn = document.getElementById("leftBtn");
+            leftBtn.style.color = "blue";
+            leftBtn.style.backgroundColor = "blue";
+            
+        };
 
         //真ん中スロットの処理
         const srotCenter = () =>{
-            const text = [0,1,2,3,4,5,6,7,8,9];
+            const text = ['images/apple.jpg','images/bell.jpg','images/budoo.jpg',
+                          'images/piero.jpg','images/seven.jpg','images/suika.jpg','images/money.jpg'];
             const rnd =Math.floor(Math.random() * text.length);           
-            document.getElementById("center").innerHTML = rnd;
+            const area = document.getElementById("center-area");
+            area.src = text[rnd]; 
+
         };
 
-            const stopbtnCenter = function(){
+        const stopbtnCenter = function(){
             clearInterval(stopCenter);
-            }
+            //クリックすると赤色から青色に変わる
+            const centerBtn = document.getElementById("centerBtn");
+            centerBtn.style.color = "blue";
+            centerBtn.style.backgroundColor = "blue";   
+        };
 
         //右スロットの処理
         const srotRight = () =>{
-            const text = [0,1,2,3,4,5,6,7,8,9];
+            const text = ['images/apple.jpg','images/bell.jpg','images/budoo.jpg',
+                          'images/piero.jpg','images/seven.jpg','images/suika.jpg','images/money.jpg'];
             const rnd =Math.floor(Math.random() * text.length);           
-            document.getElementById("right").innerHTML = rnd;
-        };
+            const area = document.getElementById("right-area");
+            area.src = text[rnd]; 
 
-            const stopbtnRight = function(){
+        };
+        const stopbtnRight = function(){
             clearInterval(stopRight);
-            }
+            //クリックすると赤色から青色に変わる
+            const rightBtn = document.getElementById("rightBtn");
+            rightBtn.style.color = "blue";
+            rightBtn.style.backgroundColor = "blue";   
+        };
         
         
 
